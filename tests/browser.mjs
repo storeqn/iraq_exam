@@ -4,8 +4,8 @@ import { chromium } from 'playwright'
 import JSZip from 'jszip'
 import { preview } from 'vite'
 
-const base='http://127.0.0.1:4179/'
-const server=await preview({configFile:false,preview:{host:'127.0.0.1',port:4179,strictPort:true}})
+const server=await preview({preview:{host:'127.0.0.1',port:4179,strictPort:true}})
+const base=new URL(server.config.base,'http://127.0.0.1:4179').href
 const errors=[]
 let browser
 try {

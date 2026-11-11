@@ -48,13 +48,13 @@ export function Modal({title, children, close, wide=false}: {title:string;childr
 }
 export function Footer({compact=false}: {compact?:boolean}) {
   return <footer className={`site-footer ${compact?'compact':''}`}>
-    <div className="footer-credit"><img src="/logo.svg" alt="" width="34" height="34"/><div><strong>إنشاء وتصميم <bdi>ENG BAHAA</bdi></strong><small>جميع حقوق التصميم محفوظة © <bdi>ENG BAHAA</bdi></small></div></div>
+    <div className="footer-credit"><img src={import.meta.env.BASE_URL + 'logo.svg'} alt="" width="34" height="34"/><div><strong>إنشاء وتصميم <bdi>ENG BAHAA</bdi></strong><small>جميع حقوق التصميم محفوظة © <bdi>ENG BAHAA</bdi></small></div></div>
     <div className="footer-contact"><small>للتواصل وطلب تصميم موقع أو تطبيق خاص · <bdi>07731378313</bdi></small><a className="button secondary" target="_blank" rel="noopener noreferrer" href={contact}><MessageCircle size={16}/>تواصل مع المصمم</a></div>
   </footer>
 }
 export function SplashScreen() {
   const [Visible, setVisible] = useSplash()
-  return Visible ? <div className={`splash ${Visible===2?'leaving':''}`} aria-hidden="true" onClick={()=>setVisible(0)}><img src="/logo.svg" alt=""/><div>إنشاء وتصميم</div><strong dir="ltr">ENG BAHAA</strong><p>{brand}</p></div> : null
+  return Visible ? <div className={`splash ${Visible===2?'leaving':''}`} aria-hidden="true" onClick={()=>setVisible(0)}><img src={import.meta.env.BASE_URL + 'logo.svg'} alt=""/><div>إنشاء وتصميم</div><strong dir="ltr">ENG BAHAA</strong><p>{brand}</p></div> : null
 }
 function useSplash() {
   const [visible,setVisible]=useState(()=>matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 1)
@@ -85,7 +85,7 @@ export function useInstall() {
 }
 export function PWAInstall({install}: {install:ReturnType<typeof useInstall>}) {
   return <section className="install-guide">
-    <img src="/logo.svg" alt="" width="66" height="66"/><h3>{brand}</h3>
+    <img src={import.meta.env.BASE_URL + 'logo.svg'} alt="" width="66" height="66"/><h3>{brand}</h3>
     {install.installed ? <p>أنت تستخدم التطبيق في وضع مستقل.</p> : <>
       {install.available && <Button kind="primary" onClick={()=>void install.prompt()}>تثبيت أسئلتي</Button>}
       <p><strong>على iPhone وiPad:</strong> في Safari، افتح قائمة <strong>مشاركة ← إضافة إلى الشاشة الرئيسية</strong>.</p>

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { MathfieldElement } from 'mathlive'
 import { Button } from './ui'
 
-MathfieldElement.fontsDirectory=import.meta.env.DEV?'/node_modules/mathlive/fonts':'/mathlive-fonts'
+MathfieldElement.fontsDirectory=import.meta.env.BASE_URL + (import.meta.env.DEV ? 'node_modules/mathlive/fonts' : 'mathlive-fonts')
 const buttons=[
   ['كسر','\\frac{#0}{#?}'],['أس','^{#?}'],['جذر','\\sqrt{#0}'],['جذر نوني','\\sqrt[#?]{#0}'],['≤','\\leq'],['≥','\\geq'],['≠','\\ne'],['±','\\pm'],['زاوية','\\angle'],
   ['sin','\\sin'],['cos','\\cos'],['tan','\\tan'],['log','\\log'],['حد','\\lim_{#?}'],['تكامل','\\int_{#?}^{#?}'],['مشتقة','\\frac{d}{dx}'],['مجموع','\\sum_{#?}^{#?}'],

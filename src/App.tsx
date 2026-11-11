@@ -94,7 +94,7 @@ export default function App() {
     <SplashScreen/>
     {drawer&&<button className="drawer-overlay" aria-label="إغلاق القائمة" onClick={()=>setDrawer(false)}/>}
     <aside className={`sidebar ${drawer?'shown':''}`}>
-      <a href="#/" className="brand"><img src="/logo.svg" width="46" height="46" alt=""/><span><strong>أسئلتي<span className="brand-dot">.</span></strong><small>{brand}</small></span></a>
+      <a href="#/" className="brand"><img src={import.meta.env.BASE_URL + 'logo.svg'} width="46" height="46" alt=""/><span><strong>أسئلتي<span className="brand-dot">.</span></strong><small>{brand}</small></span></a>
       <div className="side-main"><span className="side-label">مساحة العمل</span><nav aria-label="مساحة العمل">
         {nav.slice(0,4).map(([key,label,Icon])=><a key={key} href={key==='home'?'#/':'#/'+key} aria-current={route===key||editing&&key==='exams'?'page':undefined}><Icon size={19}/><span>{label}</span></a>)}
       </nav><span className="side-label secondary-label">التطبيق</span><nav aria-label="التطبيق">

@@ -20,7 +20,7 @@ class ErrorBoundary extends React.Component<{children:React.ReactNode},{failed:b
   static getDerivedStateFromError(){return {failed:true}}
   render(){
     if(!this.state.failed)return this.props.children
-    return <main className="fatal panel" role="alert"><img src="/logo.svg" alt="" width="48" height="48"/><h1>تعذّر عرض التطبيق</h1><p>أعد تحميل الصفحة لمحاولة فتح أوراقك المحلية.</p><Button kind="primary" onClick={()=>location.reload()}>إعادة التحميل</Button></main>
+    return <main className="fatal panel" role="alert"><img src={import.meta.env.BASE_URL + 'logo.svg'} alt="" width="48" height="48"/><h1>تعذّر عرض التطبيق</h1><p>أعد تحميل الصفحة لمحاولة فتح أوراقك المحلية.</p><Button kind="primary" onClick={()=>location.reload()}>إعادة التحميل</Button></main>
   }
 }
 createRoot(document.getElementById('root')!).render(<ErrorBoundary><App/></ErrorBoundary>)
